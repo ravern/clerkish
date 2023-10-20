@@ -2,10 +2,16 @@ import { ReactElement } from "react";
 
 import { RootLayout } from "~/layouts/root";
 
-export default function LandingPage() {
-  return <div>Hello world</div>;
+import styles from "./index.module.css";
+
+export default function HomePage() {
+  return (
+    <div className={styles.container}>
+      <span className={styles.text}>Welcome to the Clerkie Challenge!</span>
+    </div>
+  );
 }
 
-LandingPage.getLayout = (page: ReactElement) => {
-  return <RootLayout>{page}</RootLayout>;
+HomePage.getLayout = (page: ReactElement) => {
+  return <RootLayout title="Home">{page}</RootLayout>;
 };

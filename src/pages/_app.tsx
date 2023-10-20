@@ -1,3 +1,5 @@
+import "./styles.css";
+
 import { AppPropsWithLayout } from "~/types/next";
 
 export default function App({ Component, pageProps }: AppPropsWithLayout) {

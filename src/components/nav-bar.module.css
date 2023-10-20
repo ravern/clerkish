@@ -1,0 +1,29 @@
+.nav {
+  background-color: #091928;
+  width: 250px;
+  padding: 22px 15px;
+}
+
+.linksContainer {
+  margin-top: 33px;
+  display: flex;
+  flex-direction: column;
+}
+
+.brandContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.brandContainer>*+* {
+  margin-left: 11px;
+}
+
+.brand {
+  color: #FFF;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.08px;
+}
