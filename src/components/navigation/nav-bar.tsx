@@ -1,6 +1,6 @@
-import { ClerkieIcon } from "./icons/clerkie-icon";
-import FriendsIcon from "./icons/friends-icon";
-import HomeIcon from "./icons/home-icon";
+import { ClerkieIcon } from "../icons/clerkie-icon";
+import FriendsIcon from "../icons/friends-icon";
+import HomeIcon from "../icons/home-icon";
 import styles from "./nav-bar.module.css";
 import { NavBarLink } from "./nav-bar-link";
 

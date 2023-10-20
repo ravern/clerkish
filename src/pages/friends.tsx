@@ -1,6 +1,6 @@
 import { ReactElement } from "react";
 
-import { FriendList } from "~/components/friend-list";
+import { FriendList } from "~/components/friends/friend-list";
 import { RootLayout } from "~/layouts/root";
 
 export default function FriendsPage() {

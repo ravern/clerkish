@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
-import { NavBar } from "~/components/nav-bar";
-import { TitleBar } from "~/components/title-bar";
+import { NavBar } from "~/components/navigation/nav-bar";
+import { TitleBar } from "~/components/navigation/title-bar";
 
 import styles from "./root.module.css";
 

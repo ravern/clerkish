@@ -1,4 +1,4 @@
-import styles from "./title-bar.module.css";
+import styles from "../navigation/title-bar.module.css";
 
 export interface TitleBarProps {
   title: string;

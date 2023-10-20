@@ -1,7 +1,7 @@
 import { Friend, Tag } from "~/api/models";
 
+import { TagItem } from "../tag-item";
 import styles from "./friend-list-item.module.css";
-import { TagItem } from "./tag-item";
 
 export interface FriendListItemProps {
   friend: Friend;
