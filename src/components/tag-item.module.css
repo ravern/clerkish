@@ -1,0 +1,16 @@
+.tag {
+  border-radius: 9999px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.closeFriends {
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+}
+
+.superCloseFriends {
+  color: var(--color-positive);
+  background-color: var(--color-positive-light);
+}

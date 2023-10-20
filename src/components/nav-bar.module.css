@@ -21,8 +21,7 @@
 }
 
 .brand {
-  color: #FFF;
-  font-family: Inter;
+  color: var(--color-white);
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.08px;

@@ -5,11 +5,11 @@
   padding: 10.5px;
   border-radius: 6px;
   text-decoration: none;
-  color: white;
+  color: var(--color-white);
 }
 
 .activeLink {
-  background-color: #424242;
+  background-color: var(--color-gray-1000);
 }
 
 .link>*+* {
