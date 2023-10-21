@@ -9,50 +9,42 @@
       "name": "Sally Cooper",
       "email": "sallycooper@gmail.com",
       "phone": "(470) 782-5471",
-      "tags": [
-        "Close Friends"
-      ]
+      "tag": "Close Friends"
     },
     {
       "id": 2,
       "name": "Judith Gonzalez",
       "email": "jgonzalez@gmail.com",
       "phone": "(123) 142-4123",
-      "tags": []
+      "tag": null
     },
     {
       "id": 3,
       "name": "George Bryant",
       "email": "georgebryant@gmail.com",
       "phone": "(393) 292-0983",
-      "tags": []
+      "tag": null
     },
     {
       "id": 4,
       "name": "Betty Wood",
       "email": "betty@gmail.com",
       "phone": "(273) 098-1029",
-      "tags": [
-        "Super Close Friends"
-      ]
+      "tag": "Super Close Friends"
     },
     {
       "id": 5,
       "name": "Debra Russell",
       "email": "debraressell@gmail.com",
       "phone": "(412) 235-5321",
-      "tags": [
-        "Super Close Friends"
-      ]
+      "tag": "Super Close Friends"
     },
     {
       "id": 6,
       "name": "Rebecca Flores",
       "email": "rebeccaflores@gmail.com",
       "phone": "(574) 243-2574",
-      "tags": [
-        "Close Friends"
-      ]
+      "tag": "Close Friends"
     }
   ]
 }

@@ -8,5 +8,5 @@ export type Friend = {
   name: string;
   email: string;
   phone: string;
-  tags: string[];
+  tag: string | null;
 };

@@ -1,0 +1,63 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container>*+* {
+  margin-left: 15px;
+}
+
+.disclosureButton {
+  border-radius: 9999px;
+  padding: 8px 20px;
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-600);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.disclosureButton>*+* {
+  margin-left: 10px;
+}
+
+.activeDisclosureButton {
+  border: 1px solid var(--color-gray-1000);
+  background: var(--color-gray-1000);
+}
+
+.disclosureIcon {
+  fill: var(--color-white);
+  stroke: var(--color-gray-600);
+}
+
+.activeDisclosureIcon {
+  fill: var(--color-gray-1000);
+  stroke: var(--color-white);
+}
+
+.filterCount {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.separator {
+  width: 1px;
+  height: 28px;
+  background-color: var(--color-gray-400);
+}
+
+.clearAllButton {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--color-gray-400);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.activeClearAllButton {
+  color: var(--color-primary);
+}

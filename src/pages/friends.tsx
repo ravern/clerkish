@@ -4,11 +4,7 @@ import { FriendList } from "~/components/friends/friend-list";
 import { RootLayout } from "~/layouts/root";
 
 export default function FriendsPage() {
-  return (
-    <div>
-      <FriendList />
-    </div>
-  );
+  return <FriendList />;
 }
 
 FriendsPage.getLayout = (page: ReactElement) => {

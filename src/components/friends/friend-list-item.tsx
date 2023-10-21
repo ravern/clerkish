@@ -1,6 +1,6 @@
 import { Friend, Tag } from "~/api/models";
 
-import { TagItem } from "../tag-item";
+import { TagPill } from "../tag-pill";
 import styles from "./friend-list-item.module.css";
 
 export interface FriendListItemProps {
@@ -12,11 +12,7 @@ export function FriendListItem({ friend }: FriendListItemProps) {
     <div className={styles.card}>
       <div className={styles.nameContainer}>
         <span className={styles.name}>{friend.name}</span>
-        <div className={styles.tagContainer}>
-          {friend.tags.map((tag) => (
-            <TagItem key={tag} tag={tag as Tag} />
-          ))}
-        </div>
+        <TagPill tag={friend.tag as Tag} />
       </div>
       <div className={styles.detailsContainer}>
         <span className={styles.email}>{friend.email}</span>

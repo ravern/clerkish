@@ -1,8 +1,18 @@
 .container {
+  flex-grow: 1;
   margin: auto;
   max-width: 1050px;
+  padding: 46px 0;
 }
 
 .container>*+* {
+  margin-top: 25px;
+}
+
+.toolbarContainer {
+  flex: none;
+}
+
+.listContainer>*+* {
   margin-top: 15px;
 }

@@ -1,34 +1,41 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { fetchAllFriends, FriendFilter } from "~/api/fetchers/friends";
 import { useQuery } from "~/hooks/use-query";
 
+import { FriendFilterToolbar } from "./friend-filter-toolbar";
 import styles from "./friend-list.module.css";
 import { FriendListItem } from "./friend-list-item";
 
 export interface FriendsListProps {}
 
-const filter: FriendFilter = {
-  tags: {
-    include: [],
-  },
-};
-
 export function FriendList({}: FriendsListProps) {
-  const allFriendsFetcher = useCallback(() => fetchAllFriends(filter), []);
+  const [filter, setFilter] = useState<FriendFilter>({
+    tags: {
+      include: ["Close Friends"],
+    },
+  });
+
+  const allFriendsFetcher = useCallback(
+    () => fetchAllFriends(filter),
+    [filter]
+  );
   const { data: friends, error, isLoading } = useQuery(allFriendsFetcher);
 
-  if (isLoading) {
-    return <>Loading...</>;
-  }
-  if (error) {
-    return <>Error: {error.message}</>;
-  }
   return (
     <div className={styles.container}>
-      {friends.map((friend) => (
-        <FriendListItem key={friend.id} friend={friend} />
-      ))}
+      <div className={styles.toolbarContainer}>
+        <FriendFilterToolbar filter={filter} onFilterChange={setFilter} />
+      </div>
+      {isLoading && <>Loading...</>}
+      {error && <>Error: {error.message}</>}
+      {friends && (
+        <div className={styles.listContainer}>
+          {friends.map((friend) => (
+            <FriendListItem key={friend.id} friend={friend} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

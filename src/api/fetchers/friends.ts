@@ -1,18 +1,23 @@
-import { doesArrayIncludeArray } from "../helpers/array-include";
 import { sleep } from "../helpers/sleep";
 import MOCK_DATA from "../mock-data.json";
 import { Friend } from "../models";
 
 export interface FriendFilter {
-  tags: {
+  tags?: {
     include: string[];
   };
 }
 
 export async function fetchAllFriends(filter: FriendFilter): Promise<Friend[]> {
   await sleep(1000);
+  if (!filter.tags) {
+    return MOCK_DATA.friends;
+  }
   return MOCK_DATA.friends.filter((friend) => {
-    return doesArrayIncludeArray(friend.tags, filter.tags.include);
+    if (!friend.tag) {
+      return null;
+    }
+    return filter.tags?.include.includes(friend.tag);
   });
 }
 
