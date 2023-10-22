@@ -28,6 +28,10 @@ export function FriendFilterToolbar({
     onFilterChange({});
   };
 
+  const handleFilterPopoverDismiss = () => {
+    setIsFilterVisible(false);
+  };
+
   const isFilterActive =
     isFilterVisible || (filter.tags && filter.tags.include.length > 0);
 
@@ -67,10 +71,11 @@ export function FriendFilterToolbar({
         </button>
       </div>
       <FriendFilterPopover
-        disclosureRef={disclosureRef.current}
+        disclosureElem={disclosureRef.current}
         filter={filter}
         onFilterChange={onFilterChange}
         isVisible={isFilterVisible}
+        onDismiss={handleFilterPopoverDismiss}
       />
     </>
   );

@@ -10,14 +10,14 @@ export default function CrossIcon() {
       <path
         d="M4 4L13 13"
         stroke="#424242"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
       <path
         d="M13 4L4 13"
         stroke="#424242"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );
