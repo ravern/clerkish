@@ -1,6 +1,6 @@
 import { Ref, useRef, useState } from "react";
 
-import { FriendFilter } from "~/api/fetchers/friends";
+import { FetchAllFriendsFilter } from "~/api/fetchers/friends";
 import { cn } from "~/helpers/cn";
 
 import { FilterIcon } from "../../icons/filter-icon";
@@ -8,8 +8,8 @@ import { FriendFilterPopover } from "./friend-filter-popover";
 import styles from "./friend-filter-toolbar.module.css";
 
 export interface FriendFilterToolbarProps {
-  filter: FriendFilter;
-  onFilterChange: (newFilter: FriendFilter) => void;
+  filter: FetchAllFriendsFilter;
+  onFilterChange: (newFilter: FetchAllFriendsFilter) => void;
 }
 
 export function FriendFilterToolbar({

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 
-import { FriendFilter } from "~/api/fetchers/friends";
+import { FetchAllFriendsFilter } from "~/api/fetchers/friends";
 import { fetchAllStatuses } from "~/api/fetchers/statuses";
 import { useQuery } from "~/hooks/use-query";
 
@@ -13,8 +13,8 @@ const DISCLOSURE_POPOVER_GAP = 10;
 
 export interface FriendFilterPopoverProps {
   disclosureElem: HTMLElement | null;
-  filter: FriendFilter;
-  onFilterChange: (newFilter: FriendFilter) => void;
+  filter: FetchAllFriendsFilter;
+  onFilterChange: (newFilter: FetchAllFriendsFilter) => void;
   isVisible: boolean;
   onDismiss: () => void;
 }

@@ -32,26 +32,21 @@ export function useQuery<Data, Err = Error>(fetcher: QueryFetcher<Data>) {
       isLoading: true,
     }));
 
-    let maybeSetResult: typeof setResult | null = setResult;
     fetcher()
       .then((data) =>
-        maybeSetResult?.({
+        setResult({
           data,
           error: undefined,
           isLoading: false,
         })
       )
       .catch((error) =>
-        maybeSetResult?.({
+        setResult({
           data: undefined,
           error,
           isLoading: false,
         })
       );
-
-    return () => {
-      maybeSetResult = null;
-    };
   }, [fetcher, setResult]);
 
   return result;

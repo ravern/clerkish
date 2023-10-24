@@ -6,7 +6,7 @@
 .innerContainer {
   margin: auto;
   max-width: 1050px;
-  padding: 46px 0;
+  padding: 46px 20px;
 }
 
 .innerContainer>*+* {

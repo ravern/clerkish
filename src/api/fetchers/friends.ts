@@ -2,21 +2,26 @@ import { sleep } from "../helpers/sleep";
 import MOCK_DATA from "../mock-data.json";
 import { Friend } from "../models";
 
-export interface FriendFilter {
+export interface FetchAllFriendsFilter {
   status?: {
     in: string[];
   };
 }
 
-export interface FriendPagination {
-  offset: number;
+export interface FetchAllFriendsPagination {
+  offset?: number;
   limit: number;
 }
 
+export interface FetchAllFriendsResponse {
+  data: Friend[];
+  hasNextPage: boolean;
+}
+
 export async function fetchAllFriends(
-  filter: FriendFilter,
-  pagination?: FriendPagination
-): Promise<Friend[]> {
+  filter: FetchAllFriendsFilter,
+  pagination: FetchAllFriendsPagination
+): Promise<FetchAllFriendsResponse> {
   await sleep(1000);
 
   let friends = MOCK_DATA.friends;
@@ -30,14 +35,17 @@ export async function fetchAllFriends(
     });
   }
 
-  if (pagination) {
-    friends = friends.slice(
-      pagination.offset,
-      pagination.offset + pagination.limit
-    );
-  }
+  const offset = pagination.offset ?? 0;
+  friends = friends.slice(
+    offset,
+    Math.min(friends.length, offset + pagination.limit)
+  );
 
-  return friends;
+  const totalCount = MOCK_DATA.friends.length;
+  return {
+    data: friends,
+    hasNextPage: offset + pagination.limit < totalCount,
+  };
 }
 
 export async function fetchFriend(id: number): Promise<Friend | null> {

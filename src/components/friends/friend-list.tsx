@@ -1,8 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { fetchAllFriends, FriendFilter } from "~/api/fetchers/friends";
+import { fetchAllFriends, FetchAllFriendsFilter } from "~/api/fetchers/friends";
 import { Friend } from "~/api/models";
-import { useQuery } from "~/hooks/use-query";
+import {
+  QueryPaginatedArg,
+  usePaginatedQuery,
+} from "~/hooks/use-paginated-query";
 
 import styles from "./friend-list.module.css";
 import { FriendListItem } from "./friend-list-item";
@@ -15,29 +18,23 @@ const INFINITE_SCROLL_THRESHOLD = 1;
 export interface FriendsListProps {}
 
 export function FriendList({}: FriendsListProps) {
-  const [filter, setFilter] = useState<FriendFilter>({});
-  const [paginationOffset, setPaginationOffset] = useState(0);
-
-  const [friends, setFriends] = useState<Friend[]>([]);
+  const [filter, setFilter] = useState<FetchAllFriendsFilter>({});
 
   const allFriendsFetcher = useCallback(
-    () =>
+    ({ offset, limit }: QueryPaginatedArg) =>
       fetchAllFriends(filter, {
-        offset: paginationOffset,
-        limit: PAGINATION_LIMIT,
+        offset,
+        limit,
       }),
-    [filter, paginationOffset]
+    [filter]
   );
-  const {
-    data: currentFriends,
-    error,
-    isLoading,
-  } = useQuery(allFriendsFetcher);
-  useEffect(() => {
-    if (currentFriends != null) {
-      setFriends((friends) => [...friends, ...currentFriends]);
-    }
-  }, [currentFriends]);
+  const { data, error, isLoading, fetchNextPage } = usePaginatedQuery(
+    allFriendsFetcher,
+    PAGINATION_LIMIT
+  );
+  const friends = useMemo(() => {
+    return data.reduce((friends, page) => [...friends, ...page], []);
+  }, [data]);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -51,10 +48,9 @@ export function FriendList({}: FriendsListProps) {
     const height = container.offsetHeight;
     const offset = scrollY - height;
     if (offset <= INFINITE_SCROLL_THRESHOLD) {
-      // This triggers a refetch.
-      setPaginationOffset((offset) => (offset += PAGINATION_LIMIT));
+      fetchNextPage();
     }
-  }, [containerRef, isLoading]);
+  }, [containerRef, isLoading, fetchNextPage]);
 
   return (
     <div
@@ -71,7 +67,7 @@ export function FriendList({}: FriendsListProps) {
             friends.map((friend) => (
               <FriendListItem key={friend.id} friend={friend} />
             ))}
-          {(isLoading || true) &&
+          {isLoading &&
             [0, 1, 2].map((index) => <FriendListItemSkeleton key={index} />)}
         </div>
       </div>
