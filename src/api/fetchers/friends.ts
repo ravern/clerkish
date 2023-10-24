@@ -3,22 +3,41 @@ import MOCK_DATA from "../mock-data.json";
 import { Friend } from "../models";
 
 export interface FriendFilter {
-  tags?: {
-    include: string[];
+  status?: {
+    in: string[];
   };
 }
 
-export async function fetchAllFriends(filter: FriendFilter): Promise<Friend[]> {
+export interface FriendPagination {
+  offset: number;
+  limit: number;
+}
+
+export async function fetchAllFriends(
+  filter: FriendFilter,
+  pagination?: FriendPagination
+): Promise<Friend[]> {
   await sleep(1000);
-  if (!filter.tags) {
-    return MOCK_DATA.friends;
+
+  let friends = MOCK_DATA.friends;
+
+  if (filter.status) {
+    friends = friends.filter((friend) => {
+      if (!friend.status) {
+        return null;
+      }
+      return filter.status?.in.includes(friend.status);
+    });
   }
-  return MOCK_DATA.friends.filter((friend) => {
-    if (!friend.tag) {
-      return null;
-    }
-    return filter.tags?.include.includes(friend.tag);
-  });
+
+  if (pagination) {
+    friends = friends.slice(
+      pagination.offset,
+      pagination.offset + pagination.limit
+    );
+  }
+
+  return friends;
 }
 
 export async function fetchFriend(id: number): Promise<Friend | null> {

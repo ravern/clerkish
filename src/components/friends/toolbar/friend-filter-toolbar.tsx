@@ -3,7 +3,7 @@ import { Ref, useRef, useState } from "react";
 import { FriendFilter } from "~/api/fetchers/friends";
 import { cn } from "~/helpers/cn";
 
-import { FilterIcon } from "../icons/filter-icon";
+import { FilterIcon } from "../../icons/filter-icon";
 import { FriendFilterPopover } from "./friend-filter-popover";
 import styles from "./friend-filter-toolbar.module.css";
 
@@ -33,7 +33,7 @@ export function FriendFilterToolbar({
   };
 
   const isFilterActive =
-    isFilterVisible || (filter.tags && filter.tags.include.length > 0);
+    isFilterVisible || (filter.status && filter.status.in.length > 0);
 
   return (
     <>
@@ -52,19 +52,19 @@ export function FriendFilterToolbar({
               isFilterActive && styles.activeDisclosureIcon
             )}
           />
-          {filter.tags && (
+          {filter.status && (
             <span className={styles.filterCount}>
-              {filter.tags.include.length}
+              {filter.status.in.length}
             </span>
           )}
         </button>
         <div className={styles.separator} />
         <button
           onClick={handleClearAllClick}
-          disabled={!filter.tags}
+          disabled={!filter.status}
           className={cn(
             styles.clearAllButton,
-            filter.tags && styles.activeClearAllButton
+            filter.status && styles.activeClearAllButton
           )}
         >
           Clear all

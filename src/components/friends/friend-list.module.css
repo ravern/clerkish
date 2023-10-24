@@ -1,11 +1,15 @@
 .container {
-  flex-grow: 1;
+  overflow: scroll;
+  height: 100%;
+}
+
+.innerContainer {
   margin: auto;
   max-width: 1050px;
   padding: 46px 0;
 }
 
-.container>*+* {
+.innerContainer>*+* {
   margin-top: 25px;
 }
 

@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 
 import { FriendFilter } from "~/api/fetchers/friends";
-import { fetchAllTags } from "~/api/fetchers/tags";
+import { fetchAllStatuses } from "~/api/fetchers/statuses";
 import { useQuery } from "~/hooks/use-query";
 
-import { Checkbox } from "../checkbox";
-import CrossIcon from "../icons/cross-icon";
+import { Checkbox } from "../../checkbox";
+import CrossIcon from "../../icons/cross-icon";
 import { FriendFilterBackdrop } from "./friend-filter-backdrop";
 import styles from "./friend-filter-popover.module.css";
 
@@ -26,12 +26,12 @@ export function FriendFilterPopover({
   isVisible,
   onDismiss,
 }: FriendFilterPopoverProps) {
-  const { data: tags } = useQuery(fetchAllTags);
+  const { data: statuses } = useQuery(fetchAllStatuses);
 
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedStatuses, setSelectedStatuses] = useState<string[]>([]);
   useEffect(() => {
-    setSelectedTags(filter.tags?.include ?? []);
-  }, [filter, setSelectedTags]);
+    setSelectedStatuses(filter.status?.in ?? []);
+  }, [filter, setSelectedStatuses]);
 
   const style = useMemo(() => {
     const rect = disclosureElem?.getBoundingClientRect();
@@ -44,35 +44,48 @@ export function FriendFilterPopover({
     };
   }, [disclosureElem]);
 
-  const handleCheckboxChange = (tag: string) => (checked: boolean) => {
-    const filteredSelectedTags = selectedTags.filter((t) => t !== tag);
-    if (checked) {
-      setSelectedTags([...filteredSelectedTags, tag]);
+  const handleStatusItemClick = (clickedStatus: string) => () => {
+    if (selectedStatuses.includes(clickedStatus)) {
+      setSelectedStatuses(
+        selectedStatuses.filter((status) => status !== clickedStatus)
+      );
     } else {
-      setSelectedTags(filteredSelectedTags);
+      setSelectedStatuses([...selectedStatuses, clickedStatus]);
     }
   };
+
+  const handleCheckboxChange =
+    (changedStatus: string) => (checked: boolean) => {
+      const filteredSelectedStatuses = selectedStatuses.filter(
+        (status) => status !== changedStatus
+      );
+      if (checked) {
+        setSelectedStatuses([...filteredSelectedStatuses, changedStatus]);
+      } else {
+        setSelectedStatuses(filteredSelectedStatuses);
+      }
+    };
 
   const handleClearAllClick = () => {
     onFilterChange({
       ...filter,
-      tags: undefined,
+      status: undefined,
     });
     onDismiss();
   };
 
   const handleApplyClick = () => {
-    if (selectedTags.length > 0) {
+    if (selectedStatuses.length > 0) {
       onFilterChange({
         ...filter,
-        tags: {
-          include: Array.from(selectedTags),
+        status: {
+          in: Array.from(selectedStatuses),
         },
       });
     } else {
       onFilterChange({
         ...filter,
-        tags: undefined,
+        status: undefined,
       });
     }
     onDismiss();
@@ -99,13 +112,17 @@ export function FriendFilterPopover({
         <div className={styles.bodyContainer}>
           <div className={styles.statusesContainer}>
             <span className={styles.subtitle}>Friend Status</span>
-            {tags &&
-              tags.map((tag) => (
-                <div key={tag} className={styles.statusItem}>
-                  <span>{tag}</span>
+            {statuses &&
+              statuses.map((status) => (
+                <div
+                  key={status}
+                  className={styles.statusItem}
+                  onClick={handleStatusItemClick(status)}
+                >
+                  <span>{status}</span>
                   <Checkbox
-                    value={selectedTags.includes(tag)}
-                    onChange={handleCheckboxChange(tag)}
+                    value={selectedStatuses.includes(status)}
+                    onChange={handleCheckboxChange(status)}
                   />
                 </div>
               ))}

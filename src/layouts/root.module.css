@@ -14,15 +14,10 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  overflow: hidden;
 }
 
 .page {
   flex-grow: 1;
-  overflow: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.page::-webkit-scrollbar {
-  display: none;
+  overflow: hidden;
 }

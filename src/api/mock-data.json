@@ -1,5 +1,5 @@
 {
-  "tags": [
+  "statuses": [
     "Close Friends",
     "Super Close Friends"
   ],
@@ -9,42 +9,196 @@
       "name": "Sally Cooper",
       "email": "sallycooper@gmail.com",
       "phone": "(470) 782-5471",
-      "tag": "Close Friends"
+      "status": "Close Friends"
     },
     {
       "id": 2,
       "name": "Judith Gonzalez",
       "email": "jgonzalez@gmail.com",
       "phone": "(123) 142-4123",
-      "tag": null
+      "status": null
     },
     {
       "id": 3,
       "name": "George Bryant",
       "email": "georgebryant@gmail.com",
       "phone": "(393) 292-0983",
-      "tag": null
+      "status": null
     },
     {
       "id": 4,
       "name": "Betty Wood",
       "email": "betty@gmail.com",
       "phone": "(273) 098-1029",
-      "tag": "Super Close Friends"
+      "status": "Super Close Friends"
     },
     {
       "id": 5,
       "name": "Debra Russell",
       "email": "debraressell@gmail.com",
       "phone": "(412) 235-5321",
-      "tag": "Super Close Friends"
+      "status": "Super Close Friends"
     },
     {
       "id": 6,
       "name": "Rebecca Flores",
       "email": "rebeccaflores@gmail.com",
       "phone": "(574) 243-2574",
-      "tag": "Close Friends"
+      "status": "Close Friends"
+    },
+    {
+      "id": 7,
+      "name": "George Bryant",
+      "email": "georgebryant@gmail.com",
+      "phone": "(393) 292-0983",
+      "status": null
+    },
+    {
+      "id": 8,
+      "name": "Betty Wood",
+      "email": "betty@gmail.com",
+      "phone": "(273) 098-1029",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 9,
+      "name": "Debra Russell",
+      "email": "debraressell@gmail.com",
+      "phone": "(412) 235-5321",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 10,
+      "name": "Rebecca Flores",
+      "email": "rebeccaflores@gmail.com",
+      "phone": "(574) 243-2574",
+      "status": "Close Friends"
+    },
+    {
+      "id": 11,
+      "name": "George Bryant",
+      "email": "georgebryant@gmail.com",
+      "phone": "(393) 292-0983",
+      "status": null
+    },
+    {
+      "id": 12,
+      "name": "Betty Wood",
+      "email": "betty@gmail.com",
+      "phone": "(273) 098-1029",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 13,
+      "name": "Debra Russell",
+      "email": "debraressell@gmail.com",
+      "phone": "(412) 235-5321",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 14,
+      "name": "Rebecca Flores",
+      "email": "rebeccaflores@gmail.com",
+      "phone": "(574) 243-2574",
+      "status": "Close Friends"
+    },
+    {
+      "id": 15,
+      "name": "George Bryant",
+      "email": "georgebryant@gmail.com",
+      "phone": "(393) 292-0983",
+      "status": null
+    },
+    {
+      "id": 16,
+      "name": "Betty Wood",
+      "email": "betty@gmail.com",
+      "phone": "(273) 098-1029",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 17,
+      "name": "Debra Russell",
+      "email": "debraressell@gmail.com",
+      "phone": "(412) 235-5321",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 18,
+      "name": "Rebecca Flores",
+      "email": "rebeccaflores@gmail.com",
+      "phone": "(574) 243-2574",
+      "status": "Close Friends"
+    },
+    {
+      "id": 19,
+      "name": "George Bryant",
+      "email": "georgebryant@gmail.com",
+      "phone": "(393) 292-0983",
+      "status": null
+    },
+    {
+      "id": 20,
+      "name": "Betty Wood",
+      "email": "betty@gmail.com",
+      "phone": "(273) 098-1029",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 21,
+      "name": "Debra Russell",
+      "email": "debraressell@gmail.com",
+      "phone": "(412) 235-5321",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 22,
+      "name": "Rebecca Flores",
+      "email": "rebeccaflores@gmail.com",
+      "phone": "(574) 243-2574",
+      "status": "Close Friends"
+    },
+    {
+      "id": 23,
+      "name": "George Bryant",
+      "email": "georgebryant@gmail.com",
+      "phone": "(393) 292-0983",
+      "status": null
+    },
+    {
+      "id": 24,
+      "name": "Betty Wood",
+      "email": "betty@gmail.com",
+      "phone": "(273) 098-1029",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 25,
+      "name": "Debra Russell",
+      "email": "debraressell@gmail.com",
+      "phone": "(412) 235-5321",
+      "status": "Super Close Friends"
+    },
+    {
+      "id": 26,
+      "name": "Rebecca Flores",
+      "email": "rebeccaflores@gmail.com",
+      "phone": "(574) 243-2574",
+      "status": "Close Friends"
+    },
+    {
+      "id": 27,
+      "name": "George Bryant",
+      "email": "georgebryant@gmail.com",
+      "phone": "(393) 292-0983",
+      "status": null
+    },
+    {
+      "id": 28,
+      "name": "Betty Wood",
+      "email": "betty@gmail.com",
+      "phone": "(273) 098-1029",
+      "status": "Super Close Friends"
     }
   ]
 }
